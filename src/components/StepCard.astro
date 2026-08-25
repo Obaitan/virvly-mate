@@ -1,0 +1,41 @@
+---
+interface Props {
+  num: number | string;
+  tag: string;
+  title: string;
+  desc: string;
+  image: string;
+}
+
+const { num, tag, title, desc, image } = Astro.props;
+---
+
+<div class="flex flex-col gap-6 md:gap-8 group">
+  <!-- Step Image -->
+  <div class="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-sm bg-brand-paper-2 border border-black/5">
+    <img 
+      src={image} 
+      alt={`Step ${num}: ${title}`} 
+      class="object-cover absolute inset-0 w-full h-full transition-transform duration-700 ease-ease group-hover:scale-105"
+      loading="lazy"
+      decoding="async"
+    />
+    <!-- Step Badge Number -->
+    <div class="absolute bottom-4 left-4 z-10 w-11 h-11 rounded-full bg-brand-blue-deep/90 backdrop-blur-sm text-white font-heading font-extrabold text-[18px] flex items-center justify-center shadow-md">
+      {num}
+    </div>
+  </div>
+
+  <!-- Step Content -->
+  <div class="flex flex-col gap-2.5">
+    <span class="font-heading font-bold text-[12px] md:text-[13px] tracking-widest text-brand-orange uppercase">
+      {tag}
+    </span>
+    <h3 class="font-heading font-bold text-[20px] md:text-[22px] leading-tight text-brand-charcoal">
+      {title}
+    </h3>
+    <p class="font-body text-[14.5px] leading-relaxed text-brand-grey-1">
+      {desc}
+    </p>
+  </div>
+</div>

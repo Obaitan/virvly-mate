@@ -1,0 +1,56 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  class?: string;
+  type?: 'button' | 'submit' | 'reset';
+  ariaLabel?: string;
+  animateArrow?: boolean;
+}
+
+const {
+  href,
+  variant = 'primary',
+  class: className = '',
+  type = 'button',
+  ariaLabel,
+  animateArrow = false,
+} = Astro.props;
+
+// Tailwind classes based on variant style guide standards
+const baseClasses = 'inline-flex items-center justify-center gap-2 font-semibold text-[15px] px-[30px] py-[15px] rounded-full cursor-pointer transition-all duration-300 ease-ease outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-orange';
+
+const variantClasses = {
+  primary: 'bg-brand-orange text-white hover:-translate-y-[2px] hover:bg-brand-orange-hover shadow-md hover:shadow-lg',
+  secondary: 'bg-brand-blue text-white hover:-translate-y-[2px] hover:bg-opacity-90 shadow-md hover:shadow-lg',
+  ghost: 'bg-transparent border-[1.5px] border-white/40 text-white hover:bg-white/10 hover:border-white',
+};
+
+const combinedClasses = `${baseClasses} ${variantClasses[variant]} ${className}`;
+---
+
+{
+  href ? (
+    <a 
+      href={href} 
+      class={combinedClasses} 
+      aria-label={ariaLabel}
+    >
+      <slot />
+      {animateArrow && (
+        <span class="arw transition-transform duration-300 ease-ease group-hover:translate-x-[3px] inline-block">&rarr;</span>
+      )}
+    </a>
+  ) : (
+    <button 
+      type={type} 
+      class={combinedClasses} 
+      aria-label={ariaLabel}
+    >
+      <slot />
+      {animateArrow && (
+        <span class="arw transition-transform duration-300 ease-ease group-hover:translate-x-[3px] inline-block">&rarr;</span>
+      )}
+    </button>
+  )
+}

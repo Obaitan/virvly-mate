@@ -1,0 +1,99 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  activePage?: 'home' | 'clients';
+}
+
+const { activePage = 'home' } = Astro.props;
+---
+
+<header 
+  id="hdr" 
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-ease py-5 md:py-6 bg-transparent"
+>
+  <div class="wrap flex items-center justify-between">
+    <!-- Brand Wordmark -->
+    <a 
+      href="/" 
+      class="font-heading font-extrabold text-[22px] tracking-tight text-white flex items-center gap-1.5 hover:opacity-95 transition-opacity"
+      aria-label="VirvlyMate Homepage"
+    >
+      <span class="text-white">Virvly</span><span class="text-brand-orange">Mate</span>
+    </a>
+
+    <!-- Action Buttons -->
+    <div class="flex items-center gap-3 md:gap-4">
+      {activePage === 'home' ? (
+        <>
+          <a 
+            href="/clients" 
+            class="group inline-flex items-center gap-2 font-semibold text-[14px] md:text-[15px] text-white hover:text-brand-orange transition-colors py-2 px-1 focus:outline-none focus:underline"
+            aria-label="Find my photos page"
+          >
+            <!-- Search Icon -->
+            <svg 
+              class="w-4 h-4 transition-transform duration-300 group-hover:scale-110" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2.5" 
+              stroke-linecap="round"
+            >
+              <circle cx="11" cy="11" r="7"/>
+              <path d="M20 20l-3.6-3.6"/>
+            </svg>
+            <span class="hidden sm:inline">Find my photos</span>
+            <span class="sm:hidden">Find</span>
+          </a>
+          
+          <Button 
+            href="https://app.virvlymate.com" 
+            variant="primary" 
+            class="text-[13px] md:text-[14px] px-5 py-2.5 shadow-none hover:shadow-md hover:scale-[1.02]"
+          >
+            Try VirvlyMate
+          </Button>
+        </>
+      ) : (
+        <>
+          <a 
+            href="/" 
+            class="font-semibold text-[14px] md:text-[15px] text-white hover:text-brand-orange transition-colors py-2 px-1 focus:outline-none focus:underline"
+          >
+            For Photographers
+          </a>
+          
+          <Button 
+            href="https://app.virvlymate.com" 
+            variant="primary" 
+            class="text-[13px] md:text-[14px] px-5 py-2.5 shadow-none hover:shadow-md hover:scale-[1.02]"
+          >
+            Try VirvlyMate
+          </Button>
+        </>
+      )}
+    </div>
+  </div>
+</header>
+
+<script>
+  // Handle passive scroll interaction for the header background
+  const header = document.getElementById('hdr');
+  if (header) {
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        header.classList.add('bg-brand-blue-deep/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-white/10', 'py-4');
+        header.classList.remove('bg-transparent', 'py-5', 'md:py-6');
+      } else {
+        header.classList.add('bg-transparent', 'py-5', 'md:py-6');
+        header.classList.remove('bg-brand-blue-deep/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-white/10', 'py-4');
+      }
+    };
+
+    // Add passive event listener for performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Run once on load to ensure state correctness
+    handleScroll();
+  }
+</script>

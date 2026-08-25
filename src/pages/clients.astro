@@ -1,0 +1,350 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout title="Find Your Photos — VirvlyMate">
+  <!-- Scrollable page container -->
+  <div class="relative min-h-screen bg-brand-paper select-none font-body text-brand-charcoal overflow-x-hidden">
+    
+    <!-- HEADER -->
+    <Header activePage="clients" />
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[50vh] flex items-center justify-center pt-28 pb-16 md:pt-36 md:pb-24 text-white overflow-hidden">
+      <!-- Background Image -->
+      <img 
+        src="/images/client-hero.jpg" 
+        alt="Customers smiling outdoor photo" 
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <!-- Dark scrim overlay for readability -->
+      <div class="absolute inset-0 bg-brand-blue-deep/75 mix-blend-multiply z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-blue-deep/50 via-brand-blue-deep/75 to-brand-blue-deep/95 z-10"></div>
+
+      <!-- Wrap Content -->
+      <div class="wrap relative z-20 flex flex-col items-center text-center max-w-3xl px-4">
+        <span class="font-heading font-extrabold text-[12px] md:text-[13px] tracking-widest text-brand-orange uppercase block mb-3">
+          For Customers
+        </span>
+        <h1 class="font-heading font-extrabold text-[36px] sm:text-[44px] md:text-[50px] leading-tight tracking-tight mb-4">
+          Find yourself in photographs.
+        </h1>
+        <p class="font-body text-[15.5px] sm:text-[17px] leading-relaxed text-white/85 max-w-xl">
+          Use a quick selfie to find photographs taken of you by VirvlyMate photographers. Secure, private, and instant.
+        </p>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE PHOTO DISCOVERY APP SECTION -->
+    <section class="py-16 md:py-24 bg-white relative z-20 -mt-8 rounded-t-3xl shadow-2xl">
+      <div class="wrap max-w-xl">
+        
+        <!-- Interactive Form Card -->
+        <div class="bg-brand-paper border border-black/5 rounded-2xl p-6 sm:p-8 shadow-sm">
+          <h2 class="font-heading font-bold text-[22px] sm:text-[24px] text-brand-charcoal mb-2 text-center">
+            Photo Matcher
+          </h2>
+          <p class="font-body text-[13.5px] text-brand-grey-1 text-center mb-8">
+            Upload a selfie and optionally enter a photographer code to discover your photos.
+          </p>
+
+          <form id="matcher-form" class="space-y-6">
+            <!-- Drag and Drop / Upload zone -->
+            <div>
+              <label class="block font-heading font-bold text-[13px] uppercase tracking-wider text-brand-charcoal mb-2.5">
+                1. Upload selfie or portrait
+              </label>
+              <div 
+                id="drop-zone" 
+                class="relative border-2 border-dashed border-black/15 hover:border-brand-blue/50 rounded-xl p-8 flex flex-col items-center justify-center bg-white cursor-pointer transition-colors group"
+              >
+                <!-- Input element (hidden) -->
+                <input 
+                  type="file" 
+                  id="file-input" 
+                  accept="image/*" 
+                  class="absolute inset-0 opacity-0 cursor-pointer" 
+                  required
+                />
+                
+                <!-- SVG Camera Icon -->
+                <svg 
+                  id="upload-icon"
+                  class="w-10 h-10 text-brand-grey-2 group-hover:text-brand-blue transition-colors mb-3" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  stroke-width="1.8" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                >
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+
+                <p id="upload-text" class="font-heading font-semibold text-[14px] text-brand-charcoal mb-1 text-center group-hover:text-brand-blue transition-colors">
+                  Click or drag photo here
+                </p>
+                <p id="upload-subtext" class="font-body text-[11.5px] text-brand-grey-2 text-center">
+                  Supports JPEG, PNG up to 10MB
+                </p>
+
+                <!-- Selected preview container -->
+                <div id="preview-container" class="hidden absolute inset-0 bg-white rounded-xl overflow-hidden p-2">
+                  <div class="relative w-full h-full rounded-lg overflow-hidden">
+                    <img id="preview-image" src="" alt="Selfie preview" class="w-full h-full object-cover" />
+                    <!-- Change button overlay -->
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                      <span class="text-white text-[12.5px] font-semibold bg-brand-charcoal/80 px-3 py-1.5 rounded-md backdrop-blur-sm">
+                        Change Photo
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Optional code input -->
+            <div>
+              <label for="photo-code" class="block font-heading font-bold text-[13px] uppercase tracking-wider text-brand-charcoal mb-2">
+                2. Photographer Code <span class="text-brand-grey-2 font-normal">(Optional)</span>
+              </label>
+              <input 
+                type="text" 
+                id="photo-code" 
+                placeholder="e.g. SUMMER26" 
+                maxlength="12"
+                class="w-full px-4 py-3 rounded-xl border border-black/15 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue/35 bg-white text-[14.5px] font-heading font-semibold text-brand-charcoal uppercase tracking-wider placeholder:normal-case placeholder:font-normal placeholder:tracking-normal focus:outline-none transition-all"
+              />
+            </div>
+
+            <!-- Submit button wrapper -->
+            <button 
+              type="submit" 
+              class="w-full bg-brand-orange hover:bg-brand-orange-light text-white font-heading font-bold text-[14px] tracking-wide uppercase py-4 px-6 rounded-xl shadow-md transition-all duration-300 hover:scale-[1.01] hover:shadow-lg focus:outline-none flex items-center justify-center gap-2"
+            >
+              Find my photos
+            </button>
+          </form>
+
+          <!-- Simulated matching/scanning flow layout -->
+          <div id="scanning-state" class="hidden py-8 flex flex-col items-center justify-center">
+            <div class="relative w-20 h-20 mb-5">
+              <!-- Animated outer spinning ring -->
+              <div class="absolute inset-0 rounded-full border-4 border-brand-blue/20 border-t-brand-blue animate-spin"></div>
+              <!-- Inner pulse scanner -->
+              <div class="absolute inset-3 rounded-full bg-brand-orange/10 animate-ping"></div>
+            </div>
+            <h3 class="font-heading font-bold text-[16px] text-brand-charcoal mb-1">Scanning Face...</h3>
+            <p class="font-body text-[12.5px] text-brand-grey-1 text-center">Comparing features with VirvlyMate matches</p>
+          </div>
+
+          <!-- Simulated results container -->
+          <div id="results-state" class="hidden border border-black/5 bg-white rounded-xl p-6 shadow-sm text-center">
+            <div class="w-12 h-12 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-[18px] text-brand-charcoal mb-2">Simulated Match Success</h3>
+            <p class="font-body text-[13.5px] text-brand-grey-1 leading-relaxed mb-6">
+              In a real matching environment, our system identifies specific photo coordinates and serves them securely. Try uploading a new selfie to test again!
+            </p>
+            <Button 
+              id="reset-button" 
+              variant="secondary" 
+              class="text-[12.5px] px-5 py-2.5 bg-brand-paper hover:bg-brand-paper-2 border-black/10 hover:border-black/20 text-brand-charcoal"
+            >
+              Reset Search
+            </Button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMPREHENSIVE PRIVACY APPROACH SECTION -->
+    <section class="py-20 md:py-28 bg-brand-paper border-t border-black/[0.04]" id="privacy">
+      <div class="wrap max-w-4xl">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="font-heading font-extrabold text-[12px] md:text-[13px] tracking-widest text-brand-blue uppercase block mb-3">
+            Privacy First
+          </span>
+          <h2 class="font-heading font-extrabold text-[32px] sm:text-[38px] md:text-[42px] leading-tight text-brand-charcoal">
+            How we handle your face
+          </h2>
+          <p class="font-body text-[15px] sm:text-[16px] leading-relaxed text-brand-grey-1 mt-4">
+            At VirvlyMate, privacy is not an afterthought — it is a foundational architectural pillar. Here is exactly how we treat your biometric information.
+          </p>
+        </div>
+
+        <!-- Privacy Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Shield Card 1: Strictly Transient -->
+          <div class="bg-white border border-black/5 p-6 sm:p-8 rounded-2xl shadow-sm flex gap-5">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue/5 text-brand-blue flex items-center justify-center">
+              <!-- Transient / Time SVG Icon -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-[17px] sm:text-[18px] text-brand-charcoal mb-2">Strictly Transient Processing</h3>
+              <p class="font-body text-[13.5px] leading-relaxed text-brand-grey-1">
+                Your uploaded selfie or capture is processed temporarily in secure server memory to generate matching coordinates, then immediately and permanently discarded.
+              </p>
+            </div>
+          </div>
+
+          <!-- Shield Card 2: No Storage -->
+          <div class="bg-white border border-black/5 p-6 sm:p-8 rounded-2xl shadow-sm flex gap-5">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue/5 text-brand-blue flex items-center justify-center">
+              <!-- Hard Drive / Database block Icon -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m16.5 0a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 7.5m16.5 0V4.5A2.25 2.25 0 0 0 17.25 2.25H6.75A2.25 2.25 0 0 0 4.5 4.5V7.5"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-[17px] sm:text-[18px] text-brand-charcoal mb-2">No Permanent Biometrics</h3>
+              <p class="font-body text-[13.5px] leading-relaxed text-brand-grey-1">
+                We never store your selfie or build persistent face databases. We compile only anonymized visual vector points which cannot be reversed to identify you.
+              </p>
+            </div>
+          </div>
+
+          <!-- Shield Card 3: Encrypted in Transit -->
+          <div class="bg-white border border-black/5 p-6 sm:p-8 rounded-2xl shadow-sm flex gap-5">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue/5 text-brand-blue flex items-center justify-center">
+              <!-- Lock / Encryption SVG Icon -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0V10.5m-3.111 1.25H18.9m-16.511 0A2.25 2.25 0 0 0 3 13.5v5.17c0 .596.355 1.127.91 1.341l.001.001a14.707 14.707 0 0 0 16.178 0c.553-.213.908-.744.908-1.34V13.5a2.25 2.25 0 0 0-2.247-2.25H3.389z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-[17px] sm:text-[18px] text-brand-charcoal mb-2">Fully Encrypted Transfers</h3>
+              <p class="font-body text-[13.5px] leading-relaxed text-brand-grey-1">
+                Your data is transferred using end-to-end SSL/TLS encryption. All matches happen inside enterprise-grade firewalled environments.
+              </p>
+            </div>
+          </div>
+
+          <!-- Shield Card 4: Complete User Control -->
+          <div class="bg-white border border-black/5 p-6 sm:p-8 rounded-2xl shadow-sm flex gap-5">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue/5 text-brand-blue flex items-center justify-center">
+              <!-- Eye / View SVG Icon -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-[17px] sm:text-[18px] text-brand-charcoal mb-2">Total Search Control</h3>
+              <p class="font-body text-[13.5px] leading-relaxed text-brand-grey-1">
+                You only see matches of yourself. No other users can search for your photos, and photographers do not receive your facial metrics or personal details.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <Footer />
+
+  </div>
+</Layout>
+
+<script>
+  // Handle client-side interactive form behavior
+  const form = document.getElementById('matcher-form') as HTMLFormElement;
+  const fileInput = document.getElementById('file-input') as HTMLInputElement;
+  const previewContainer = document.getElementById('preview-container') as HTMLDivElement;
+  const previewImage = document.getElementById('preview-image') as HTMLImageElement;
+  const uploadText = document.getElementById('upload-text') as HTMLParagraphElement;
+  const uploadSubtext = document.getElementById('upload-subtext') as HTMLParagraphElement;
+  const uploadIcon = document.getElementById('upload-icon') as HTMLElement;
+  const dropZone = document.getElementById('drop-zone') as HTMLDivElement;
+
+  const scanningState = document.getElementById('scanning-state') as HTMLDivElement;
+  const resultsState = document.getElementById('results-state') as HTMLDivElement;
+  const resetButton = document.getElementById('reset-button') as HTMLButtonElement;
+
+  // Watch for file selections to generate preview
+  if (fileInput) {
+    fileInput.addEventListener('change', (e: Event) => {
+      const target = e.target as HTMLInputElement;
+      if (target.files && target.files[0]) {
+        const file = target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+          if (event.target && event.target.result) {
+            previewImage.src = event.target.result as string;
+            previewContainer.classList.remove('hidden');
+          }
+        };
+
+        reader.readAsDataURL(file);
+      }
+    });
+  }
+
+  // Handle Drag & Drop styling
+  if (dropZone) {
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone.classList.add('border-brand-blue', 'bg-brand-blue/5');
+      }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('border-brand-blue', 'bg-brand-blue/5');
+      }, false);
+    });
+  }
+
+  // Handle form submission to trigger simulated scanning flow
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Hide form
+      form.classList.add('hidden');
+      // Show scanning
+      scanningState.classList.remove('hidden');
+
+      // After 2.5 seconds, transition to results
+      setTimeout(() => {
+        scanningState.classList.add('hidden');
+        resultsState.classList.remove('hidden');
+      }, 2500);
+    });
+  }
+
+  // Handle reset search
+  if (resetButton) {
+    resetButton.addEventListener('click', () => {
+      // Clear file inputs & previews
+      if (fileInput) fileInput.value = '';
+      if (previewImage) previewImage.src = '';
+      previewContainer.classList.add('hidden');
+      form.reset();
+
+      // Show form again, hide results
+      resultsState.classList.add('hidden');
+      form.classList.remove('hidden');
+    });
+  }
+</script>
