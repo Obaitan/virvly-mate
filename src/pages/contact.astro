@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout title="Contact Us — VirvlyMate">
+  <!-- Scrollable page container -->
+  <div class="relative min-h-screen bg-brand-paper font-body text-brand-charcoal overflow-x-hidden">
+    
+    <!-- HEADER -->
+    <Header activePage="contact" />
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[40vh] flex items-center justify-center pt-28 pb-16 md:pt-36 md:pb-20 text-white overflow-hidden bg-brand-blue-deep">
+      <!-- Background overlay elements for visual depth -->
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-blue-deep/50 via-brand-blue-deep/80 to-brand-blue-deep/98 z-10"></div>
+      <!-- Subtle brand-themed grid background -->
+      <div class="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:24px_24px] z-0"></div>
+
+      <!-- Hero Content -->
+      <div class="wrap relative z-20 flex flex-col items-center text-center max-w-3xl px-4">
+        <span class="font-heading font-extrabold text-[12px] md:text-[13px] tracking-widest text-brand-orange uppercase block mb-3">
+          Get in touch
+        </span>
+        <h1 class="font-heading font-extrabold text-[36px] sm:text-[44px] md:text-[50px] leading-tight tracking-tight mb-4">
+          How can we help?
+        </h1>
+        <p class="font-body text-[15.5px] sm:text-[17px] leading-relaxed text-white/85 max-w-xl">
+          Have questions about connecting photographers with buyers, or need help with a recent photo order? We are here for you.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTENT SECTION (FORM + INFO) -->
+    <section class="py-16 md:py-24 bg-white relative z-20 -mt-8 rounded-t-3xl shadow-2xl">
+      <div class="wrap">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
+          
+          <!-- Left Column: Interactive Contact Form Card -->
+          <div class="lg:col-span-7 bg-brand-paper border border-black/5 rounded-2xl p-6 sm:p-10 shadow-sm">
+            <h2 class="font-heading font-extrabold text-[24px] text-brand-charcoal mb-2">
+              Send us a message
+            </h2>
+            <p class="font-body text-[14px] text-brand-grey-1 mb-8">
+              Fill out the form below and our response team will get back to you shortly.
+            </p>
+
+            <ContactForm />
+          </div>
+
+          <!-- Right Column: Supporting Information Block -->
+          <div class="lg:col-span-5 space-y-10 lg:sticky lg:top-28">
+            <!-- Text section -->
+            <div class="space-y-4">
+              <span class="font-heading font-bold text-xs tracking-widest text-brand-blue uppercase block">
+                Connect Directly
+              </span>
+              <h2 class="font-heading font-extrabold text-3xl leading-tight text-brand-charcoal">
+                We'd love to hear from you.
+              </h2>
+              <p class="font-body text-[15px] leading-relaxed text-brand-grey-1">
+                At VirvlyMate, we believe in removing barriers. Whether you are standardizing your photography sales or looking for a souvenir photograph, our support desks are fully active.
+              </p>
+            </div>
+
+            <!-- Direct contacts list -->
+            <div class="space-y-6">
+              <!-- Item 1: Email -->
+              <div class="flex items-start gap-4">
+                <div class="size-11 rounded-xl bg-brand-blue/5 border border-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0 mt-0.5">
+                  <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-heading font-bold text-[15px] text-brand-charcoal mb-0.5">General & Business Email</h3>
+                  <a href="mailto:hello@virvlymate.com" class="font-body text-[14.5px] text-brand-blue hover:text-brand-orange hover:underline transition-colors">
+                    hello@virvlymate.com
+                  </a>
+                </div>
+              </div>
+
+              <!-- Item 2: SLA Response Time -->
+              <div class="flex items-start gap-4">
+                <div class="size-11 rounded-xl bg-brand-blue/5 border border-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0 mt-0.5">
+                  <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-heading font-bold text-[15px] text-brand-charcoal mb-0.5">Response Time</h3>
+                  <p class="font-body text-[14px] text-brand-grey-1">
+                    Guaranteed within 24 hours, Monday to Sunday.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 3: Need Photos Support -->
+              <div class="flex items-start gap-4">
+                <div class="size-11 rounded-xl bg-brand-blue/5 border border-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0 mt-0.5">
+                  <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-heading font-bold text-[15px] text-brand-charcoal mb-0.5">Looking for your photos?</h3>
+                  <p class="font-body text-[14px] text-brand-grey-1 mb-2">
+                    If you were photographed, you can use our instant AI selfie matcher to find your photos right away.
+                  </p>
+                  <a href="/clients" class="inline-flex items-center gap-1.5 text-[13.5px] font-heading font-bold text-brand-orange hover:text-brand-orange-hover hover:underline transition-colors">
+                    Search Photos Now <span>&rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Help banner card -->
+            <div class="bg-[#f6f7f8] rounded-xl p-5 border border-black/5">
+              <h4 class="font-heading font-bold text-[14.5px] text-brand-charcoal mb-1">Are you a roaming photographer?</h4>
+              <p class="font-body text-[13px] text-brand-grey-1 leading-relaxed mb-3">
+                Join roaming photographers around the world connecting customers with their memories and getting paid.
+              </p>
+              <Button href="/" variant="primary" class="text-[12px] px-4 py-2">
+                Learn more
+              </Button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <Footer />
+
+  </div>
+</Layout>

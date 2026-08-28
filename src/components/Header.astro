@@ -2,7 +2,7 @@
 import Button from './Button.astro';
 
 interface Props {
-  activePage?: 'home' | 'clients';
+  activePage?: 'home' | 'clients' | 'contact' | 'privacy' | 'terms' | 'other';
 }
 
 const { activePage = 'home' } = Astro.props;
@@ -29,7 +29,7 @@ const { activePage = 'home' } = Astro.props;
  
     <!-- Action Buttons (Desktop/Tablet) -->
     <div class="hidden sm:flex items-center gap-3 md:gap-4">
-      {activePage === 'home' ? (
+      {activePage === 'home' && (
         <>
           <Button 
             variant="ghost" 
@@ -45,7 +45,8 @@ const { activePage = 'home' } = Astro.props;
            For Clients <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
           </Button>
         </>
-      ) : (
+      )}
+      {activePage === 'clients' && (
         <>
           <Button 
             variant="ghost" 
@@ -59,6 +60,24 @@ const { activePage = 'home' } = Astro.props;
             class="text-[13px] md:text-[14px] px-5 py-2.5 shadow-none hover:shadow-md hover:scale-[1.02]"
           >
             For Photographers <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+          </Button>
+        </>
+      )}
+      {activePage !== 'home' && activePage !== 'clients' && (
+        <>
+          <Button 
+            href="/"
+            variant="ghost" 
+            class="text-[13px] md:text-[14px] px-5 py-2.5 shadow-none hover:shadow-none hover:scale-[1.02] nav-link-secondary"
+          >
+            For Photographers
+          </Button>
+          <Button 
+            href="/clients" 
+            variant="primary" 
+            class="text-[13px] md:text-[14px] px-5 py-2.5 shadow-none hover:shadow-md hover:scale-[1.02]"
+          >
+            For Clients <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
           </Button>
         </>
       )}
@@ -90,34 +109,64 @@ const { activePage = 'home' } = Astro.props;
     id="mobile-menu" 
     class="fixed inset-0 bg-brand-blue-deep/98 z-40 flex flex-col items-center justify-center p-8 transition-all duration-300 ease-ease -translate-y-full opacity-0 invisible"
   >
-    <div class="flex flex-col items-center gap-6 w-full max-w-[280px]">
-      {activePage === 'home' ? (
-        <>
-          <div class="text-[15px] px-6 py-3.5 rounded-full border border-white/10 bg-white/5 text-white/50 w-full text-center font-semibold cursor-default select-none">
-            For Photographers
-          </div>
+    <div class="flex flex-col items-center gap-5 w-full max-w-[280px] text-center">
+      <!-- Main Page Links -->
+      <a 
+        href="/" 
+        class={`text-lg font-heading font-semibold transition-colors ${activePage === 'home' ? 'text-brand-orange' : 'text-white/80 hover:text-white'}`}
+      >
+        Home
+      </a>
+      <a 
+        href="/clients" 
+        class={`text-lg font-heading font-semibold transition-colors ${activePage === 'clients' ? 'text-brand-orange' : 'text-white/80 hover:text-white'}`}
+      >
+        Find My Photos
+      </a>
+      <a 
+        href="/contact" 
+        class={`text-lg font-heading font-semibold transition-colors ${activePage === 'contact' ? 'text-brand-orange' : 'text-white/80 hover:text-white'}`}
+      >
+        Contact Us
+      </a>
+      
+      <!-- Divider -->
+      <div class="w-12 h-[1px] bg-white/10 my-2"></div>
+      
+      <!-- Secondary Legal Links -->
+      <a 
+        href="/privacy" 
+        class={`text-sm font-body transition-colors ${activePage === 'privacy' ? 'text-brand-orange font-semibold' : 'text-white/60 hover:text-white'}`}
+      >
+        Privacy Policy
+      </a>
+      <a 
+        href="/terms" 
+        class={`text-sm font-body transition-colors ${activePage === 'terms' ? 'text-brand-orange font-semibold' : 'text-white/60 hover:text-white'}`}
+      >
+        Terms of Service
+      </a>
+
+      <!-- Quick Action Button -->
+      <div class="w-full mt-4">
+        {activePage === 'home' ? (
           <Button 
             href="/clients" 
             variant="primary" 
-            class="text-[15px] px-6 py-4.5 w-full text-center shadow-lg shadow-brand-orange/20"
+            class="text-[14px] px-6 py-3.5 w-full text-center shadow-lg shadow-brand-orange/20"
           >
-            For Clients <span class="ml-1">&rarr;</span>
+            For Clients &rarr;
           </Button>
-        </>
-      ) : (
-        <>
-          <div class="text-[15px] px-6 py-3.5 rounded-full border border-white/10 bg-white/5 text-white/50 w-full text-center font-semibold cursor-default select-none">
-            For Clients
-          </div>
+        ) : (
           <Button 
             href="/" 
             variant="primary" 
-            class="text-[15px] px-6 py-4.5 w-full text-center shadow-lg shadow-brand-orange/20"
+            class="text-[14px] px-6 py-3.5 w-full text-center shadow-lg shadow-brand-orange/20"
           >
-            For Photographers <span class="ml-1">&rarr;</span>
+            For Photographers &rarr;
           </Button>
-        </>
-      )}
+        )}
+      </div>
     </div>
   </div>
 </header>

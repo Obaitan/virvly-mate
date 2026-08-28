@@ -35,11 +35,11 @@ import WhereCard from '../components/WhereCard.astro';
           The photographs you take already have buyers.
         </h1>
         <p class="font-body text-xl leading-relaxed sm:leading-[1.6] text-white max-w-xl mb-8 sm:mb-10">
-          Most of them never find them. VirvlyMate lets people find themselves in your photographs and buy the ones they want.
+          Most of them never find them. <span class="font-bold text-brand-orange">VirvlyMate</span> lets people find themselves in your photographs and buy the ones they want.
         </p>
 
         <!-- Dual CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6 sm:mb-8 w-full sm:w-auto">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6 sm:mb-8 w-full sm:w-auto">
           <Button 
             href="https://app.virvlymate.com" 
             variant="primary" 
@@ -47,7 +47,13 @@ import WhereCard from '../components/WhereCard.astro';
           >
             Try VirvlyMate <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
           </Button>
-         
+          <Button 
+            href="/contact" 
+            variant="ghost" 
+            class="w-auto text-[15px] sm:text-base px-8 py-3.5 sm:py-4"
+          >
+            Contact Us
+          </Button>
         </div>
 
         <p class="text-base sm:text-lg text-white/90">
@@ -206,13 +212,22 @@ import WhereCard from '../components/WhereCard.astro';
           Set up in minutes and upload your first photographs today.
         </p>
 
-        <Button 
-          href="https://app.virvlymate.com" 
-          variant="primary" 
-          class="text-[14.5px] px-8 py-3.5 shadow-lg shadow-brand-orange/20 mb-8"
-        >
-          Try VirvlyMate <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
-        </Button>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 w-full sm:w-auto">
+          <Button 
+            href="https://app.virvlymate.com" 
+            variant="primary" 
+            class="text-[14.5px] px-8 py-3.5 shadow-lg shadow-brand-orange/20 w-full sm:w-auto"
+          >
+            Try VirvlyMate <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+          </Button>
+          <Button 
+            href="/contact" 
+            variant="ghost" 
+            class="text-[14.5px] px-8 py-3.5 w-full sm:w-auto"
+          >
+            Get in touch
+          </Button>
+        </div>
 
         <p class="text-base text-white/90">
           Here for your own photos instead? 
