@@ -26,39 +26,39 @@ import WhereCard from '../components/WhereCard.astro';
         decoding="async"
       />
       <!-- Dark scrim overlay for readability -->
-      <div class="absolute inset-0 bg-brand-blue-deep/75 mix-blend-multiply z-10"></div>
+      <!-- <div class="absolute inset-0 bg-brand-blue-deep/75 mix-blend-multiply z-10"></div> -->
       <div class="absolute inset-0 bg-gradient-to-b from-brand-blue-deep/40 via-brand-blue-deep/60 to-brand-blue-deep/95 z-10"></div>
 
       <!-- Wrap Content -->
-      <div class="wrap relative z-20 flex flex-col items-center text-center max-w-4xl px-4 mt-8 md:mt-12">
-        <h1 class="font-heading font-extrabold text-[36px] sm:text-[48px] md:text-[56px] leading-[1.1] tracking-tight mb-6">
-          The photographs you take already have buyers.
+      <div class="wrap relative z-20 flex flex-col items-start text-left max-w-3xl px-4 mt-8 md:mt-12">
+        <h1 class="font-heading font-extrabold text-white text-[44px] md:text-7xl leading-tight sm:leading-[1.1] tracking-tight mb-4 sm:mb-6 max-w-3xl">
+          The photographs you take already have buyers
         </h1>
-        <p class="font-body text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed text-white/85 max-w-2xl mb-10">
-          Most of them never find them. VirvlyMate lets people find themselves in your photographs and buy the ones they want.
+        <p class="font-body text-xl leading-relaxed sm:leading-[1.6] text-white max-w-xl mb-8 sm:mb-10">
+          Most of them never find them. <span class="font-bold text-brand-orange">VirvlyMate</span> lets people find themselves in your photographs and buy the ones they want.
         </p>
 
         <!-- Dual CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-center gap-4 mb-10 w-full sm:w-auto">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6 sm:mb-8 w-full sm:w-auto">
           <Button 
             href="https://app.virvlymate.com" 
             variant="primary" 
-            class="w-full sm:w-auto text-[15px] px-8 py-4 shadow-lg shadow-brand-orange/20"
+            class="w-auto text-[15px] sm:text-base px-8 py-3.5 sm:py-4 shadow-lg shadow-brand-orange/20"
           >
-            For Photographers <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+            Try VirvlyMate <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
           </Button>
           <Button 
-            href="/clients" 
-            variant="secondary" 
-            class="w-full sm:w-auto text-[15px] px-8 py-4 bg-white/10 hover:bg-white/20 border-white/20 hover:border-white/35"
+            href="/contact" 
+            variant="ghost" 
+            class="w-auto text-[15px] sm:text-base px-8 py-3.5 sm:py-4"
           >
-            For Clients (Find Photos)
+            Contact Us
           </Button>
         </div>
 
-        <p class="text-[13.5px] text-white/70">
+        <p class="text-base text-white">
           Someone photographed you? 
-          <a href="/clients" class="font-semibold text-brand-orange hover:underline focus:outline-none ml-1">
+          <a href="/clients" class="font-semibold text-brand-orange hover:underline focus:outline-none block sm:inline mt-1 sm:mt-0">
             Find your photos &rarr;
           </a>
         </p>
@@ -72,11 +72,11 @@ import WhereCard from '../components/WhereCard.astro';
     </section>
 
     <!-- HOW IT WORKS SECTION -->
-    <section class="py-24 md:py-32 bg-white" id="how">
+    <section class="py-20 md:py-28 bg-white" id="how">
       <div class="wrap">
         <!-- Section Header -->
-        <div class="max-w-2xl mb-16 md:mb-20">
-          <span class="font-heading font-extrabold text-[12px] md:text-[13px] tracking-widest text-brand-blue uppercase block mb-3">
+        <div class="mb-16 md:mb-20 md:text-center">
+          <span class="font-heading font-bold text-xs tracking-widest text-brand-blue uppercase block mb-4">
             How VirvlyMate works
           </span>
           <h2 class="font-heading font-extrabold text-[32px] sm:text-[40px] md:text-[44px] leading-tight text-brand-charcoal">
@@ -85,7 +85,7 @@ import WhereCard from '../components/WhereCard.astro';
         </div>
 
         <!-- 5 Steps Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-10 md:gap-y-12 gap-x-7 xl:gap-x-[18px]">
           <StepCard 
             num="1" 
             tag="PHOTOGRAPH" 
@@ -126,20 +126,20 @@ import WhereCard from '../components/WhereCard.astro';
     </section>
 
     <!-- WHERE IT WORKS SECTION -->
-    <section class="py-24 md:py-32 bg-brand-paper border-y border-black/[0.04]">
+    <section class="py-20 md:py-24 bg-[#f6f7f8]">
       <div class="wrap">
         <!-- Section Header -->
-        <div class="max-w-2xl mb-16 md:mb-20">
-          <span class="font-heading font-extrabold text-[12px] md:text-[13px] tracking-widest text-brand-blue uppercase block mb-3">
+        <div class="max-w-2xl mb-10">
+          <span class="font-heading font-bold text-xs tracking-widest text-brand-blue uppercase block mb-4">
             Where it works
           </span>
-          <h2 class="font-heading font-extrabold text-[32px] sm:text-[40px] md:text-[44px] leading-tight text-brand-charcoal">
+          <h2 class="font-heading font-extrabold text-3xl md:text-4xl leading-tight text-brand-charcoal max-w-xl">
             Wherever you're photographing people you don't already know.
           </h2>
         </div>
 
         <!-- Where Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-5">
           <WhereCard title="Beaches & resorts" image="/images/where-1.jpg" />
           <WhereCard title="Landmarks & attractions" image="/images/where-2.jpg" />
           <WhereCard title="Parks & outdoor spaces" image="/images/where-3.jpg" />
@@ -149,18 +149,18 @@ import WhereCard from '../components/WhereCard.astro';
     </section>
 
     <!-- GETTING PAID SECTION -->
-    <section class="py-24 md:py-32 bg-white">
+    <section class="py-20 md:py-24 bg-white">
       <div class="wrap">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 items-center">
           <!-- Copy Column -->
-          <div class="lg:col-span-6">
-            <span class="font-heading font-extrabold text-[12px] md:text-[13px] tracking-widest text-brand-blue uppercase block mb-3">
+          <div class="lg:col-span-6 space-y-4">
+            <span class="font-heading font-bold text-xs tracking-widest text-brand-blue uppercase block">
               Getting paid
             </span>
-            <h2 class="font-heading font-extrabold text-[32px] sm:text-[38px] md:text-[42px] leading-tight text-brand-charcoal mb-6">
-              You set the price. You're paid when it sells.
+            <h2 class="font-heading font-extrabold text-3xl md:text-4xl leading-tight text-brand-charcoal">
+              You set the price. <br />You're paid when it sells.
             </h2>
-            <p class="font-body text-[15.5px] leading-relaxed text-brand-grey-1">
+            <p class="font-body text-[15.5px] lg:max-w-[420px] leading-relaxed text-brand-grey-1">
               Set your price and let VirvlyMate handle the transaction. Your fee is paid directly to your account, with no invoices to send or payments to chase.
             </p>
           </div>
@@ -168,69 +168,23 @@ import WhereCard from '../components/WhereCard.astro';
           <!-- Terms List Column -->
           <div class="lg:col-span-6">
             <ul class="divide-y divide-black/10 border-t border-b border-black/10">
-              <li class="py-5 flex justify-between gap-4">
-                <span class="font-heading font-bold text-[15px] sm:text-[16px] text-brand-charcoal">Set your prices</span>
-                <span class="font-body text-[14.5px] sm:text-[15px] text-brand-grey-1 text-right">You do</span>
+              <li class="py-4 flex justify-between gap-4">
+                <span class="font-body text-[14.5px] text-brand-grey-1">Set your prices</span>
+                <span class="font-heading font-bold text-[14.5px] text-brand-charcoal text-right">You do</span>
               </li>
-              <li class="py-5 flex justify-between gap-4">
-                <span class="font-heading font-bold text-[15px] sm:text-[16px] text-brand-charcoal">Customer payments</span>
-                <span class="font-body text-[14.5px] sm:text-[15px] text-brand-grey-1 text-right">Handled through VirvlyMate</span>
+              <li class="py-4 flex justify-between gap-4">
+               <span class="font-body text-[14.5px] text-brand-grey-1">Customer payments</span>
+               <span class="font-heading font-bold text-[14.5px] text-brand-charcoal text-right">Handled through VirvlyMate</span>
               </li>
-              <li class="py-5 flex justify-between gap-4">
-                <span class="font-heading font-bold text-[15px] sm:text-[16px] text-brand-charcoal">Invoicing customers</span>
-                <span class="font-body text-[14.5px] sm:text-[15px] text-brand-grey-1 text-right">Not needed</span>
+              <li class="py-4 flex justify-between gap-4">
+                <span class="font-body text-[14.5px] text-brand-grey-1">Invoicing customers</span>
+                <span class="font-heading font-bold text-[14.5px] text-brand-charcoal text-right">Not needed</span>
               </li>
-              <li class="py-5 flex justify-between gap-4">
-                <span class="font-heading font-bold text-[15px] sm:text-[16px] text-brand-charcoal">Sending photos afterwards</span>
-                <span class="font-body text-[14.5px] sm:text-[15px] text-brand-grey-1 text-right">Not needed</span>
+              <li class="py-4 flex justify-between gap-4">
+                <span class="font-body text-[14.5px] text-brand-grey-1">Sending photos afterwards</span>
+                <span class="font-heading font-bold text-[14.5px] text-brand-charcoal text-right">Not needed</span>
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FIND MY PHOTOS (COMPACT REDIRECT SECTION) -->
-    <section class="py-24 md:py-32 bg-brand-paper border-t border-black/[0.04]" id="find">
-      <div class="wrap">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <!-- Image Column -->
-          <div class="lg:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md bg-brand-paper-2 border border-black/5">
-            <img 
-              src="/images/step-4.jpg" 
-              alt="Customers matching their photos" 
-              class="object-cover absolute inset-0 w-full h-full"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          <!-- Copy Column -->
-          <div class="lg:col-span-7">
-            <span class="font-heading font-extrabold text-[12px] md:text-[13px] tracking-widest text-brand-blue uppercase block mb-3">
-              Looking for your photos?
-            </span>
-            <h2 class="font-heading font-extrabold text-[32px] sm:text-[38px] md:text-[42px] leading-tight text-brand-charcoal mb-6">
-              Find yourself in photographs taken with VirvlyMate.
-            </h2>
-            <p class="font-body text-[15.5px] leading-relaxed text-brand-grey-1 mb-8">
-              Use a selfie to find photographs you're in and buy the ones you want. You'll only see photographs matched to you, and your search selfie isn't kept.
-            </p>
-            
-            <Button 
-              href="/clients" 
-              variant="primary" 
-              class="px-7 py-3.5 text-[14px]"
-            >
-              Find my photos <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
-            </Button>
-            
-            <p class="text-[13.5px] text-brand-grey-2 mt-5">
-              Wondering how faces are handled? 
-              <a href="/clients#privacy" class="font-semibold text-brand-blue hover:underline focus:outline-none">
-                Read our privacy approach &rarr;
-              </a>
-            </p>
           </div>
         </div>
       </div>
@@ -247,27 +201,35 @@ import WhereCard from '../components/WhereCard.astro';
         decoding="async"
       />
       <!-- Dark scrim overlay for readability -->
-      <div class="absolute inset-0 bg-brand-blue-deep/80 mix-blend-multiply z-10"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-brand-blue-deep/95 via-brand-blue-deep/75 to-brand-blue-deep/50 z-10"></div>
 
       <!-- Wrap Content -->
       <div class="wrap relative z-20 flex flex-col items-center max-w-2xl px-4">
-        <h2 class="font-heading font-extrabold text-[36px] sm:text-[44px] md:text-[48px] leading-tight tracking-tight mb-4">
+        <h2 class="font-heading font-extrabold text-white text-[36px] md:text-[48px] leading-tight tracking-tight mb-4">
           Ready to get started?
         </h2>
-        <p class="font-body text-[15.5px] sm:text-[17px] leading-relaxed text-white/85 max-w-md mb-8">
+        <p class="font-body text-base md:text-lg leading-relaxed text-white max-w-md mb-8">
           Set up in minutes and upload your first photographs today.
         </p>
 
-        <Button 
-          href="https://app.virvlymate.com" 
-          variant="primary" 
-          class="text-[14.5px] px-8 py-3.5 shadow-lg shadow-brand-orange/20 mb-8"
-        >
-          Try VirvlyMate <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
-        </Button>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 w-full sm:w-auto">
+          <Button 
+            href="https://app.virvlymate.com" 
+            variant="primary" 
+            class="text-[14.5px] px-8 py-3.5 shadow-lg shadow-brand-orange/20 w-full sm:w-auto"
+          >
+            Try VirvlyMate <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+          </Button>
+          <Button 
+            href="/contact" 
+            variant="ghost" 
+            class="text-[14.5px] px-8 py-3.5 w-full sm:w-auto"
+          >
+            Get in touch
+          </Button>
+        </div>
 
-        <p class="text-[13.5px] text-white/75">
+        <p class="text-base text-white/90">
           Here for your own photos instead? 
           <a href="/clients" class="font-semibold text-brand-orange hover:underline focus:outline-none ml-1">
             Find my photos &rarr;

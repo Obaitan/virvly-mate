@@ -1,0 +1,253 @@
+---
+import Button from './Button.astro';
+---
+
+<div id="contact-form-container" class="relative">
+  <!-- Interactive Form -->
+  <form 
+    id="contact-form" 
+    class="space-y-6"
+    action="https://submit-form.com/your-form-id-here" 
+    method="POST"
+  >
+    <!-- Note: Developers can easily connect this form to Web3Forms, Formspree, or Formspark by changing the 'action' URL above. -->
+
+    <!-- Name Field -->
+    <div>
+      <label 
+        for="contact-name" 
+        class="block font-heading font-bold text-[13px] uppercase tracking-wider text-brand-charcoal mb-2"
+      >
+        Your Name
+      </label>
+      <input 
+        type="text" 
+        id="contact-name" 
+        name="name" 
+        required 
+        placeholder="Alex Mercer"
+        class="w-full font-body text-[14.5px] px-4 py-3 bg-brand-paper border border-black/10 focus:border-brand-blue rounded-xl outline-none transition-all focus:ring-2 focus:ring-brand-blue/10 placeholder:text-brand-grey-2/80 text-brand-charcoal"
+      />
+      <span id="name-error" class="hidden text-xs text-red-500 font-semibold mt-1">Please enter your name.</span>
+    </div>
+
+    <!-- Email Field -->
+    <div>
+      <label 
+        for="contact-email" 
+        class="block font-heading font-bold text-[13px] uppercase tracking-wider text-brand-charcoal mb-2"
+      >
+        Email Address
+      </label>
+      <input 
+        type="email" 
+        id="contact-email" 
+        name="email" 
+        required 
+        placeholder="alex@example.com"
+        class="w-full font-body text-[14.5px] px-4 py-3 bg-brand-paper border border-black/10 focus:border-brand-blue rounded-xl outline-none transition-all focus:ring-2 focus:ring-brand-blue/10 placeholder:text-brand-grey-2/80 text-brand-charcoal"
+      />
+      <span id="email-error" class="hidden text-xs text-red-500 font-semibold mt-1">Please enter a valid email address.</span>
+    </div>
+
+    <!-- Topic Select Field -->
+    <div>
+      <label 
+        for="contact-topic" 
+        class="block font-heading font-bold text-[13px] uppercase tracking-wider text-brand-charcoal mb-2"
+      >
+        What are you getting in touch about?
+      </label>
+      <div class="relative">
+        <select 
+          id="contact-topic" 
+          name="topic" 
+          required
+          class="w-full appearance-none font-body text-[14.5px] px-4 py-3 pr-10 bg-brand-paper border border-black/10 focus:border-brand-blue rounded-xl outline-none transition-all focus:ring-2 focus:ring-brand-blue/10 text-brand-charcoal cursor-pointer"
+        >
+          <option value="" disabled selected>Select a topic...</option>
+          <option value="photographer">Photographer Inquiry (Join, Pricing, Tech)</option>
+          <option value="client">Client Support (Find Photos, Purchase issues)</option>
+          <option value="partnership">Business Partnerships</option>
+          <option value="general">General Feedback / Other</option>
+        </select>
+        <!-- Custom Arrow Indicator -->
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-brand-grey-1">
+          <svg class="fill-current h-4.5 w-4.5" viewBox="0 0 20 20">
+            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+          </svg>
+        </div>
+      </div>
+      <span id="topic-error" class="hidden text-xs text-red-500 font-semibold mt-1">Please select a topic.</span>
+    </div>
+
+    <!-- Message Field -->
+    <div>
+      <label 
+        for="contact-message" 
+        class="block font-heading font-bold text-[13px] uppercase tracking-wider text-brand-charcoal mb-2"
+      >
+        Your Message
+      </label>
+      <textarea 
+        id="contact-message" 
+        name="message" 
+        rows="5" 
+        required 
+        placeholder="Tell us what you need..."
+        class="w-full font-body text-[14.5px] px-4 py-3 bg-brand-paper border border-black/10 focus:border-brand-blue rounded-xl outline-none transition-all focus:ring-2 focus:ring-brand-blue/10 placeholder:text-brand-grey-2/80 text-brand-charcoal resize-none"
+      ></textarea>
+      <span id="message-error" class="hidden text-xs text-red-500 font-semibold mt-1">Please write your message.</span>
+    </div>
+
+    <!-- Submit Button with Dynamic States -->
+    <div>
+      <Button 
+        type="submit" 
+        variant="primary" 
+        class="w-full text-[14.5px] py-4 shadow-lg shadow-brand-orange/25 group flex items-center justify-center gap-3"
+      >
+        <span id="btn-text">Send Message</span>
+        <!-- Spinner SVG (hidden by default) -->
+        <svg id="btn-spinner" class="hidden animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span id="btn-arrow" class="transition-transform group-hover:translate-x-[3px]">&rarr;</span>
+      </Button>
+    </div>
+  </form>
+
+  <!-- Success Overlay Card (hidden by default) -->
+  <div 
+    id="success-card" 
+    class="hidden absolute inset-0 bg-brand-paper flex flex-col items-center justify-center text-center p-6 sm:p-8 rounded-2xl animate-fade-in"
+  >
+    <!-- Success Green Checkmark Animation -->
+    <div class="w-16 h-16 bg-green-50 text-green-500 rounded-full flex items-center justify-center mb-6 ring-8 ring-green-50/50 animate-bounce">
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+
+    <h3 class="font-heading font-extrabold text-[24px] text-brand-charcoal mb-3">
+      Message Sent!
+    </h3>
+    <p class="font-body text-[14.5px] text-brand-grey-1 max-w-sm mb-6 leading-relaxed">
+      Thank you for reaching out to us. We have received your message and our team will get back to you within 24 hours.
+    </p>
+
+    <!-- Reference Box -->
+    <div class="bg-brand-paper-2 border border-black/5 rounded-xl px-4 py-3.5 mb-8 w-full max-w-xs text-left">
+      <div class="text-[11px] font-heading font-bold uppercase tracking-wider text-brand-grey-2">Inquiry Reference</div>
+      <div id="reference-id" class="text-[15px] font-mono font-bold text-brand-blue-deep mt-0.5">VM-2026-7859</div>
+    </div>
+
+    <!-- Reset Form Button -->
+    <button 
+      id="reset-form-btn" 
+      class="text-[14px] font-heading font-semibold text-brand-orange hover:text-brand-orange-hover hover:underline transition-colors focus:outline-none"
+    >
+      Send another message &rarr;
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.4s cubic-bezier(.22,.61,.36,1) forwards;
+  }
+</style>
+
+<script>
+  // Dynamic client-side handling and simulation
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const successCard = document.getElementById('success-card');
+  const referenceId = document.getElementById('reference-id');
+  const resetBtn = document.getElementById('reset-form-btn');
+
+  // Interactive buttons and spinners
+  const btnText = document.getElementById('btn-text');
+  const btnSpinner = document.getElementById('btn-spinner');
+  const btnArrow = document.getElementById('btn-arrow');
+  const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+
+  // Validation spans
+  const nameError = document.getElementById('name-error');
+  const emailError = document.getElementById('email-error');
+  const topicError = document.getElementById('topic-error');
+  const messageError = document.getElementById('message-error');
+
+  if (form && successCard && referenceId && resetBtn && submitBtn) {
+    
+    // Clear validation errors
+    const clearErrors = () => {
+      [nameError, emailError, topicError, messageError].forEach(err => err?.classList.add('hidden'));
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      clearErrors();
+
+      // Retrieve and validate values
+      const name = (document.getElementById('contact-name') as HTMLInputElement).value.trim();
+      const email = (document.getElementById('contact-email') as HTMLInputElement).value.trim();
+      const topic = (document.getElementById('contact-topic') as HTMLSelectElement).value;
+      const message = (document.getElementById('contact-message') as HTMLTextAreaElement).value.trim();
+
+      let hasError = false;
+
+      if (!name) {
+        nameError?.classList.remove('hidden');
+        hasError = true;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailError?.classList.remove('hidden');
+        hasError = true;
+      }
+      if (!topic) {
+        topicError?.classList.remove('hidden');
+        hasError = true;
+      }
+      if (!message) {
+        messageError?.classList.remove('hidden');
+        hasError = true;
+      }
+
+      if (hasError) return;
+
+      // Enter Submitting State
+      submitBtn.disabled = true;
+      btnText?.classList.add('invisible');
+      btnArrow?.classList.add('hidden');
+      btnSpinner?.classList.remove('hidden');
+
+      // Simulate network request (1.2 seconds delay)
+      setTimeout(() => {
+        // Generate random reference number
+        const rand = Math.floor(1000 + Math.random() * 9000);
+        referenceId.textContent = `VM-2026-${rand}`;
+
+        // Swap to Success Card
+        successCard.classList.remove('hidden');
+        
+        // Reset button states for later
+        submitBtn.disabled = false;
+        btnText?.classList.remove('invisible');
+        btnArrow?.classList.remove('hidden');
+        btnSpinner?.classList.add('hidden');
+      }, 1200);
+    });
+
+    // Reset Form to let user send another message
+    resetBtn.addEventListener('click', () => {
+      form.reset();
+      successCard.classList.add('hidden');
+      clearErrors();
+    });
+  }
+</script>
