@@ -12,7 +12,7 @@ import Footer from '../components/Footer.astro';
     <Header activePage="privacy" />
 
     <!-- HERO HEADER SECTION -->
-    <section class="relative min-h-[35vh] flex items-center justify-center pt-28 pb-14 md:pt-36 md:pb-16 text-white overflow-hidden bg-brand-blue-deep">
+    <section class="relative min-h-[40vh] flex items-center justify-center pt-28 pb-16 md:pt-36 md:pb-20 text-white overflow-hidden bg-brand-blue-deep">
       <!-- Background overlay elements -->
       <div class="absolute inset-0 bg-gradient-to-b from-brand-blue-deep/50 via-brand-blue-deep/80 to-brand-blue-deep/98 z-10"></div>
       
@@ -21,10 +21,10 @@ import Footer from '../components/Footer.astro';
         <span class="font-heading font-extrabold text-[12px] md:text-[13px] tracking-widest text-brand-orange uppercase block mb-3">
           Legal Agreement
         </span>
-        <h1 class="font-heading font-extrabold text-[36px] sm:text-[44px] md:text-[48px] leading-tight tracking-tight mb-2">
+        <h1 class="font-heading font-extrabold text-[36px] sm:text-[44px] md:text-[48px] leading-tight tracking-tight text-white mb-2">
           Privacy Policy
         </h1>
-        <p class="font-body text-[14px] text-white/70">
+       <p class="font-body text-sm leading-relaxed text-white max-w-xl">
           Last updated: August 28, 2026
         </p>
       </div>
@@ -32,11 +32,11 @@ import Footer from '../components/Footer.astro';
 
     <!-- LEGAL DOCUMENT CONTAINER -->
     <section class="py-16 bg-white relative z-20 -mt-8 rounded-t-3xl shadow-2xl">
-      <div class="wrap max-w-3xl">
-        <div class="prose max-w-none text-[15.5px] leading-relaxed text-brand-grey-1 space-y-8 font-body">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose max-w-none text-[15.5px] leading-relaxed text-brand-grey-1 space-y-12 font-body">
           
-          <div class="border-b border-black/5 pb-6">
-            <p class="font-semibold text-brand-charcoal text-[17px] mb-4">
+          <div class="border-b border-black/5 pb-8 space-y-4">
+            <p class="font-semibold text-brand-charcoal text-[17px]">
               At VirvlyMate, we value your trust and are fully committed to protecting your privacy.
             </p>
             <p>
@@ -45,12 +45,12 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <!-- Section 1 -->
-          <div class="space-y-3">
-            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal">1. Information We Collect</h2>
+          <div class="space-y-5">
+            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal border-b border-black/5 pb-2">1. Information We Collect</h2>
             <p>
               We collect information that you voluntarily provide to us and information that is automatically captured when you use our platform.
             </p>
-            <ul class="list-disc pl-6 space-y-2">
+            <ul class="list-disc pl-6 space-y-4">
               <li>
                 <strong class="text-brand-charcoal">Personal Data:</strong> Personally identifiable information, such as your name, email address, and billing details when you register on our platform or buy/sell photos.
               </li>
@@ -64,12 +64,12 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <!-- Section 2 -->
-          <div class="space-y-3">
-            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal">2. AI-Based Face Matching & Selfie Policy</h2>
+          <div class="space-y-5">
+            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal border-b border-black/5 pb-2">2. AI-Based Face Matching & Selfie Policy</h2>
             <p class="font-semibold text-brand-charcoal">
               Our face-matching technology is designed with privacy and security at its core.
             </p>
-            <ul class="list-disc pl-6 space-y-2">
+            <ul class="list-disc pl-6 space-y-4">
               <li>
                 <strong class="text-brand-charcoal">No Permanent Storage of Selfies:</strong> Your selfie is uploaded temporarily to perform the mathematical face match. Once matches are computed, your raw selfie is automatically discarded and is NOT retained or sold to third parties.
               </li>
@@ -83,12 +83,12 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <!-- Section 3 -->
-          <div class="space-y-3">
-            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal">3. How We Use Your Information</h2>
+          <div class="space-y-5">
+            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal border-b border-black/5 pb-2">3. How We Use Your Information</h2>
             <p>
               We process your information for purposes based on legitimate business interests, fulfilling our contract with you, and compliance with our legal obligations:
             </p>
-            <ul class="list-disc pl-6 space-y-2">
+            <ul class="list-disc pl-6 space-y-4">
               <li>To facilitate account creation and the logon process.</li>
               <li>To deliver the services you purchase or request.</li>
               <li>To verify photos you are present in via our interactive matching platform.</li>
@@ -99,12 +99,12 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <!-- Section 4 -->
-          <div class="space-y-3">
-            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal">4. Data Sharing and Disclosures</h2>
+          <div class="space-y-5">
+            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal border-b border-black/5 pb-2">4. Data Sharing and Disclosures</h2>
             <p>
               We only share your information with your consent, to comply with laws, to provide you with services, or to fulfill business obligations.
             </p>
-            <ul class="list-disc pl-6 space-y-2">
+            <ul class="list-disc pl-6 space-y-4">
               <li>
                 <strong class="text-brand-charcoal">Service Providers:</strong> We share data with third-party vendors who perform services for us, such as payment processing (Stripe) and database hosting.
               </li>
@@ -118,28 +118,28 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <!-- Section 5 -->
-          <div class="space-y-3">
-            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal">5. Security of Your Information</h2>
+          <div class="space-y-5">
+            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal border-b border-black/5 pb-2">5. Security of Your Information</h2>
             <p>
               We use administrative, technical, and physical security measures to help protect your personal information. All uploaded photos are protected in transit using Secure Socket Layer (SSL) encryption, and are stored in secure cloud servers. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that no security measures are perfect or impenetrable.
             </p>
           </div>
 
           <!-- Section 6 -->
-          <div class="space-y-3">
-            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal">6. Data Retention</h2>
+          <div class="space-y-5">
+            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal border-b border-black/5 pb-2">6. Data Retention</h2>
             <p>
               We will only keep your personal information for as long as it is necessary for the purposes set out in this Privacy Policy, unless a longer retention period is required or permitted by law.
             </p>
           </div>
 
           <!-- Section 7 -->
-          <div class="space-y-3">
-            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal">7. Your Privacy Rights</h2>
+          <div class="space-y-5">
+            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal border-b border-black/5 pb-2">7. Your Privacy Rights</h2>
             <p>
               Depending on your location (e.g., European Union / GDPR, or California / CCPA), you may have certain rights regarding your personal information, including:
             </p>
-            <ul class="list-disc pl-6 space-y-2">
+            <ul class="list-disc pl-6 space-y-4">
               <li>The right to request access to and obtain a copy of your personal information.</li>
               <li>The right to request rectification of inaccurate data.</li>
               <li>The right to request erasure of your data ("right to be forgotten").</li>
@@ -151,16 +151,16 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <!-- Section 8 -->
-          <div class="space-y-3">
-            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal">8. Contact Us</h2>
+          <div class="space-y-5">
+            <h2 class="font-heading font-extrabold text-2xl text-brand-charcoal border-b border-black/5 pb-2">8. Contact Us</h2>
             <p>
               If you have questions or comments about this Privacy Policy, please write to us at:
             </p>
-            <div class="bg-brand-paper-2 border border-black/5 rounded-xl p-5 mt-3 space-y-1">
-              <p class="font-heading font-bold text-brand-charcoal text-[15px]">VirvlyMate Security & Privacy Desk</p>
-              <p class="text-[14px]">Email: <a href="mailto:privacy@virvlymate.com" class="text-brand-blue hover:underline font-semibold">privacy@virvlymate.com</a></p>
-              <p class="text-[14px]">Alternate: <a href="mailto:hello@virvlymate.com" class="text-brand-blue hover:underline font-semibold">hello@virvlymate.com</a></p>
-              <p class="text-[14px] mt-2 text-brand-grey-2">You can also use our <a href="/contact" class="text-brand-orange hover:underline font-semibold">contact page</a> to submit an inquiry.</p>
+            <div class="bg-brand-paper-2 border border-black/5 rounded-xl p-5 mt-3 space-y-2">
+              <p class="font-heading font-bold text-brand-charcoal text-[15.5px]">VirvlyMate Security & Privacy Desk</p>
+              <p class="text-[14px]">Email: <a href="mailto:privacy@virvlymate.com" class="text-brand-blue hover:underline font-semibold font-mono">privacy@virvlymate.com</a></p>
+              <p class="text-[14px]">Alternate: <a href="mailto:hello@virvlymate.com" class="text-brand-blue hover:underline font-semibold font-mono">hello@virvlymate.com</a></p>
+              <p class="text-[14px] pt-2 text-brand-grey-2 border-t border-black/5">You can also use our <a href="/contact" class="text-brand-orange hover:underline font-semibold">contact page</a> to submit an inquiry.</p>
             </div>
           </div>
 
