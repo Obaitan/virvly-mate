@@ -16,10 +16,15 @@ const { activePage = 'home' } = Astro.props;
     <!-- Brand Wordmark -->
     <a 
       href="/" 
-      class="font-heading font-extrabold text-[22px] tracking-tight text-white flex items-center gap-1.5 hover:opacity-95 transition-opacity"
+      class="flex items-center hover:opacity-95 transition-opacity"
       aria-label="VirvlyMate Homepage"
     >
-      <span class="text-white logo-part-1 transition-colors duration-300">Virvly</span><span class="text-brand-orange">Mate</span>
+      <img 
+        src="/brand/virvly-logo.svg" 
+        alt="Virvly Logo" 
+        class="h-7 md:h-8 w-auto logo-img transition-all duration-300 ease-ease mt-1"
+      />
+      <span class="font-heading font-extrabold text-xl tracking-tight transition-colors duration-300 logo-mate">Mate</span>
     </a>
 
     <!-- Action Buttons -->
@@ -89,8 +94,21 @@ const { activePage = 'home' } = Astro.props;
     padding-bottom: 14px;
   }
 
-  #hdr.scrolled .logo-part-1 {
-    color: #1C1C1C !important;
+  /* Logo transitions */
+  #hdr .logo-img {
+    filter: brightness(0) invert(1);
+  }
+
+  #hdr .logo-mate {
+    color: #FFFFFF;
+  }
+
+  #hdr.scrolled .logo-img {
+    filter: none;
+  }
+
+  #hdr.scrolled .logo-mate {
+    color: #F78C1E;
   }
 
   #hdr.scrolled .nav-link-secondary {
