@@ -7,7 +7,7 @@ import StepCard from '../components/StepCard.astro';
 import WhereCard from '../components/WhereCard.astro';
 ---
 
-<Layout title="VirvlyMate — The photographs you take already have buyers.">
+<Layout title="Virvly — Take the photos. Clients find them. Get paid.">
   <!-- Scrollable page container -->
   <div class="relative min-h-screen bg-brand-paper select-none font-body text-brand-charcoal overflow-x-hidden">
     
@@ -15,7 +15,7 @@ import WhereCard from '../components/WhereCard.astro';
     <Header activePage="home" />
 
     <!-- HERO SECTION -->
-    <section class="relative min-h-[95vh] flex items-center justify-center pt-24 pb-16 md:pt-32 md:pb-24 text-white overflow-hidden">
+    <section class="relative min-h-[96vh] flex items-center justify-center pt-24 pb-16 md:pt-32 md:pb-24 text-white overflow-hidden">
       <!-- High performance background image (LCP candidate) -->
       <img 
         src="/images/hero-photographer.jpg" 
@@ -27,25 +27,25 @@ import WhereCard from '../components/WhereCard.astro';
       />
       <!-- Dark scrim overlay for readability -->
       <!-- <div class="absolute inset-0 bg-brand-blue-deep/75 mix-blend-multiply z-10"></div> -->
-      <div class="absolute inset-0 bg-gradient-to-b from-brand-blue-deep/40 via-brand-blue-deep/60 to-brand-blue-deep/95 z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-blue-deep/45 via-brand-blue-deep/65 to-brand-blue-deep/95 z-10"></div>
 
       <!-- Wrap Content -->
       <div class="wrap relative z-20 flex flex-col items-start text-left max-w-3xl px-4 mt-8 md:mt-12">
         <h1 class="font-heading font-extrabold text-white text-[44px] md:text-7xl leading-tight sm:leading-[1.1] tracking-tight mb-4 sm:mb-6 max-w-3xl">
-          The photographs you take already have buyers
+          Take the photos. Clients find them.<br />Get paid.
         </h1>
         <p class="font-body text-xl leading-relaxed sm:leading-[1.6] text-white max-w-xl mb-8 sm:mb-10">
-          Most of them never find them. <span class="font-bold text-brand-orange">VirvlyMate</span> lets people find themselves in your photographs and buy the ones they want.
+          Give potential clients easy access to the photos you've taken of them. They find them on <span class="font-bold text-brand-orange">Virvly</span>, choose the ones they want and pay, without you having to track them down afterwards.
         </p>
 
         <!-- Dual CTA Buttons -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6 sm:mb-8 w-full sm:w-auto">
           <Button 
-            href="https://app.virvlymate.com" 
+            href="https://mate.virvly.com/" 
             variant="primary" 
             class="w-auto text-[15px] sm:text-base px-8 py-3.5 sm:py-4 shadow-lg shadow-brand-orange/20"
           >
-            Try VirvlyMate <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+            Try Virvly <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
           </Button>
           <Button 
             href="/contact" 
@@ -77,7 +77,7 @@ import WhereCard from '../components/WhereCard.astro';
         <!-- Section Header -->
         <div class="mb-16 md:mb-20 md:text-center">
           <span class="font-heading font-bold text-xs tracking-widest text-brand-blue uppercase block mb-4">
-            How VirvlyMate works
+            How Virvly works
           </span>
           <h2 class="font-heading font-extrabold text-[32px] sm:text-[40px] md:text-[44px] leading-tight text-brand-charcoal">
             Five steps. Nothing to chase.
@@ -89,35 +89,35 @@ import WhereCard from '../components/WhereCard.astro';
           <StepCard 
             num="1" 
             tag="PHOTOGRAPH" 
-            title="Photograph the moments." 
+            title="Photograph the moments" 
             desc="Work the way you already do, with nothing new to learn." 
             image="/images/step-1.jpg"
           />
           <StepCard 
             num="2" 
-            tag="CONNECT" 
-            title="Give people a way to find photos." 
-            desc="A code or link means you don't have to chase them down." 
-            image="/images/step-2.jpg"
-          />
-          <StepCard 
-            num="3" 
             tag="UPLOAD" 
-            title="Add your photos to VirvlyMate." 
+            title="Add your photos to Virvly" 
             desc="Upload from your phone or camera in seconds." 
             image="/images/step-3.jpg"
           />
           <StepCard 
+            num="3" 
+            tag="CONNECT" 
+            title="Give people a way to find photos" 
+            desc="A code or link means you don't have to chase them down." 
+            image="/images/step-2.jpg"
+          />
+          <StepCard 
             num="4" 
             tag="FIND & BUY" 
-            title="They find their photos and pay." 
+            title="They find their photos and pay" 
             desc="A selfie shows only the photographs they're in." 
             image="/images/step-4.jpg"
           />
           <StepCard 
             num="5" 
             tag="GET PAID" 
-            title="Get paid automatically." 
+            title="Get paid automatically" 
             desc="Your fee lands in your account. Nothing to invoice." 
             image="/images/step-5.jpg"
           />
@@ -140,10 +140,10 @@ import WhereCard from '../components/WhereCard.astro';
 
         <!-- Where Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-5">
-          <WhereCard title="Beaches & resorts" image="/images/where-1.jpg" />
-          <WhereCard title="Landmarks & attractions" image="/images/where-2.jpg" />
-          <WhereCard title="Parks & outdoor spaces" image="/images/where-3.jpg" />
-          <WhereCard title="Weddings & live events" image="/images/where-4.jpg" />
+          <WhereCard title="Beaches & Resorts" image="/images/where-1.jpg" />
+          <WhereCard title="Landmarks & Attractions" image="/images/where-2.jpg" />
+          <WhereCard title="Trails & Outdoors" image="/images/where-3.jpg" />
+          <WhereCard title="Weddings & Life Events" image="/images/where-4.jpg" />
         </div>
       </div>
     </section>
@@ -161,7 +161,7 @@ import WhereCard from '../components/WhereCard.astro';
               You set the price. <br />You're paid when it sells.
             </h2>
             <p class="font-body text-[15.5px] lg:max-w-[420px] leading-relaxed text-brand-grey-1">
-              Set your price and let VirvlyMate handle the transaction. Your fee is paid directly to your account, with no invoices to send or payments to chase.
+              Set your price and let Virvly handle the transaction. Your fee is paid directly to your account, with no invoices to send or payments to chase.
             </p>
           </div>
 
@@ -174,7 +174,7 @@ import WhereCard from '../components/WhereCard.astro';
               </li>
               <li class="py-4 flex justify-between gap-4">
                <span class="font-body text-[14.5px] text-brand-grey-1">Customer payments</span>
-               <span class="font-heading font-bold text-[14.5px] text-brand-charcoal text-right">Handled through VirvlyMate</span>
+               <span class="font-heading font-bold text-[14.5px] text-brand-charcoal text-right">Handled through Virvly</span>
               </li>
               <li class="py-4 flex justify-between gap-4">
                 <span class="font-body text-[14.5px] text-brand-grey-1">Invoicing customers</span>
@@ -214,11 +214,11 @@ import WhereCard from '../components/WhereCard.astro';
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 w-full sm:w-auto">
           <Button 
-            href="https://app.virvlymate.com" 
+            href="https://mate.virvly.com/" 
             variant="primary" 
             class="text-[14.5px] px-8 py-3.5 shadow-lg shadow-brand-orange/20 w-full sm:w-auto"
           >
-            Try VirvlyMate <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+            Try Virvly <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
           </Button>
           <Button 
             href="/contact" 

@@ -17,14 +17,13 @@ const { activePage = 'home' } = Astro.props;
     <a 
       href="/" 
       class="flex items-center hover:opacity-95 transition-opacity z-50"
-      aria-label="VirvlyMate Homepage"
+      aria-label="Virvly Homepage"
     >
       <img 
         src="/brand/virvly-logo.svg" 
         alt="Virvly Logo" 
-        class="h-7 md:h-8 w-auto logo-img transition-all duration-300 ease-ease mt-1"
+        class="h-9 md:h-11 w-auto logo-img transition-all duration-300 ease-ease mt-1"
       />
-      <span class="font-heading font-extrabold text-xl tracking-tight transition-colors duration-300 logo-mate">Mate</span>
     </a>
  
     <!-- Action Buttons (Desktop/Tablet) -->
@@ -188,16 +187,8 @@ const { activePage = 'home' } = Astro.props;
     filter: brightness(0) invert(1);
   }
 
-  #hdr .logo-mate {
-    color: #FFFFFF;
-  }
-
   #hdr.scrolled .logo-img {
     filter: none;
-  }
-
-  #hdr.scrolled .logo-mate {
-    color: #F78C1E;
   }
 
   #hdr.scrolled .nav-link-secondary {

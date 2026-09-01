@@ -3,10 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
-import PhotoMatcher from '../components/PhotoMatcher.astro';
 ---
 
-<Layout title="Find Your Photos — VirvlyMate">
+<Layout title="Find Your Photos — Virvly">
   <!-- Scrollable page container -->
   <div class="relative min-h-screen bg-brand-paper select-none font-body text-brand-charcoal overflow-x-hidden">
     
@@ -32,17 +31,17 @@ import PhotoMatcher from '../components/PhotoMatcher.astro';
         <span class="font-heading font-extrabold text-[13px] tracking-widest text-white uppercase block mb-3">
           LOOKING FOR YOUR PHOTOS?
         </span>
-        <h1 class="font-heading font-extrabold text-white text-[38px] sm:text-[48px] md:text-[56px] leading-tight sm:leading-[1.1] tracking-tight mb-4 sm:mb-6 max-w-3xl">
-          Find yourself in photographs taken with <span class="text-brand-orange">VirvlyMate</span>
+        <h1 class="font-heading font-extrabold text-white text-[38px] sm:text-[48px] md:text-[56px] leading-tight sm:leading-[1.1] tracking-tight mb-4 sm:mb-6 max-w-xl">
+          Find yourself in photographs taken with <span class="text-brand-orange">Virvly</span>
         </h1>
         <p class="font-body text-[16px] sm:text-[18px] leading-relaxed sm:leading-[1.6] text-white max-w-xl mb-8 sm:mb-10">
-          Use a selfie to find photographs you're in and buy the ones you want. You'll only see photographs matched to you, and your search selfie isn't kept.
+          Use a selfie to find photographs you're in, then choose and buy the ones you want. You'll only see photographs matched to you.
         </p>
 
         <!-- Dynamic Anchor CTA Button -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6 sm:mb-8 w-full sm:w-auto">
           <Button 
-            href="#photo-matcher-section" 
+            href="https://mate.virvly.com/" 
             variant="primary" 
             class="w-auto text-[15px] sm:text-base px-8 py-3.5 sm:py-4 shadow-lg shadow-brand-orange/20 animate-fade-in"
           >
@@ -51,17 +50,14 @@ import PhotoMatcher from '../components/PhotoMatcher.astro';
         </div>
 
         <p class="text-sm sm:text-base text-white/90">
-          Wondering how faces are handled? 
+          Wondering how your selfie is handled? 
         </p>
-        <a href="/privacy" class="font-semibold text-brand-orange hover:text-brand-orange-light underline transition-colors">See our privacy approach &rarr;</a>
+        <a href="/privacy" class="font-semibold text-brand-orange hover:text-brand-orange-light hover:underline transition-colors">See our privacy approach &rarr;</a>
       </div>
     </section>
 
-    <!-- INTERACTIVE PHOTO DISCOVERY APP SECTION -->
-    <PhotoMatcher />
-
     <!-- COMPREHENSIVE PRIVACY APPROACH SECTION -->
-    <section class="py-20 md:py-24 bg-brand-paper border-t border-black/[0.04]" id="privacy">
+    <section class="py-16 md:py-20 bg-brand-paper" id="privacy">
       <div class="wrap max-w-4xl">
         <div class="text-center max-w-2xl mx-auto mb-16">
           <span class="font-heading font-extrabold text-[12px] md:text-[13px] tracking-widest text-brand-blue uppercase block mb-3">
@@ -71,7 +67,7 @@ import PhotoMatcher from '../components/PhotoMatcher.astro';
             How we handle your face
           </h2>
           <p class="font-body text-[15px] sm:text-[16px] leading-relaxed text-brand-grey-1 mt-4">
-            At VirvlyMate, privacy is not an afterthought — it is a foundational architectural pillar. Here is exactly how we treat your biometric information.
+            At Virvly, privacy is not an afterthought — it is a foundational architectural pillar. Here is exactly how we treat your biometric information.
           </p>
         </div>
 
